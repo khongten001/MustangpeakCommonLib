@@ -209,18 +209,18 @@ type
     constructor Create;
 
     // Override to load the wizard with the necessary information
-    procedure InitializeWizard; virtual; 
+    procedure InitializeWizard; virtual;
 
     // IOTAWizard
     function GetIDString: string; virtual;
     function GetName: string; virtual;
     function GetState: TWizardState;
-    procedure Execute; virtual; 
+    procedure Execute; virtual;
     //
     function GetAuthor: string;
     function GetComment: string; virtual;
     function GetPage: string; virtual;
-    function GetGlyph: Cardinal;
+    function GetGlyph: THandle;
 
     // IOTARepositoryWizard60
     function GetDesigner: string;
@@ -672,7 +672,7 @@ begin
   Result := FState
 end;
 
-function TCommonWizardNotifierObject.GetGlyph: Cardinal;
+function TCommonWizardNotifierObject.GetGlyph: THandle;
 begin
   Result := LoadIcon(hInstance, PWideChar(GetGlpyhResourceID));
 end;

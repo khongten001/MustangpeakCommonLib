@@ -218,9 +218,7 @@ type
   TCommonStreamClipFormat = class(TCommonClipboardFormat)
   public
     function GetFormatEtc: TFormatEtc; override;
-    function LoadFromClipboard: Boolean; override;
     function LoadFromDataObject(DataObject: IDataObject; CoolStream: TCommonStream): Boolean; reintroduce;
-    function SaveToClipboard: Boolean; override;
     function SaveToDataObject(DataObject: IDataObject; CoolStream: TCommonStream): Boolean; reintroduce;
   end;
 
@@ -987,12 +985,6 @@ begin
   Result.tymed := TYMED_HGLOBAL
 end;
 
-function TCommonStreamClipFormat.LoadFromClipboard: Boolean;
-begin
-  Result := False;
-  Assert(True=False, 'TCoolStream.LoadFromClipboard not Implemented');
-end;
-
 function TCommonStreamClipFormat.LoadFromDataObject(DataObject: IDataObject;
   CoolStream: TCommonStream): Boolean;
 var
@@ -1021,12 +1013,6 @@ begin
       ReleaseStgMedium(Medium);
     end
   end
-end;
-
-function TCommonStreamClipFormat.SaveToClipboard: Boolean;
-begin
-  Result := False;
-  Assert(True=False, 'TCoolStream.SaveToClipboard not Implemented');
 end;
 
 function TCommonStreamClipFormat.SaveToDataObject(DataObject: IDataObject;

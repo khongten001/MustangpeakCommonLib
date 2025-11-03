@@ -204,7 +204,7 @@ type
     FUniqueID: string;
     FGalleryCategory: IOTAGalleryCategory;
   protected
-    function GetGlyphResourceID: string; virtual;
+    function GetGlpyhResourceID: string; virtual;
   public
     constructor Create;
 
@@ -647,7 +647,7 @@ begin
   Result := TArray<string>.Create(cWin32Platform, cWin64Platform);
 end;
 
-function TCommonWizardNotifierObject.GetGlyphResourceID: string;
+function TCommonWizardNotifierObject.GetGlpyhResourceID: string;
 begin
   Result := FGlyphResourceID
 end;
@@ -674,7 +674,7 @@ end;
 
 function TCommonWizardNotifierObject.GetGlyph: THandle;
 begin
-  Result := LoadIcon(hInstance, PWideChar(GetGlyphResourceID));
+  Result := LoadIcon(hInstance, PWideChar(GetGlpyhResourceID));
 end;
 
 function TCommonWizardNotifierObject.GetDesigner: string;
